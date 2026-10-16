@@ -1,0 +1,8 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><title>האתר עבר</title>
+<script>
+// unregister the old service worker so the installed app doesn't keep serving the cached old copy
+if(navigator.serviceWorker)navigator.serviceWorker.getRegistrations().then(r=>r.forEach(x=>x.unregister()));
+if(window.caches)caches.keys().then(k=>k.forEach(n=>caches.delete(n)));
+var p=location.pathname.replace(/^\/shiurim-app\/?/,'');
+location.replace('https://moshekfir78.github.io/shiurim-app/'+p+location.search+location.hash);
+</script></head><body><p>האתר עבר ל־<a href="https://moshekfir78.github.io/shiurim-app/">moshekfir78.github.io/shiurim-app</a></p></body></html>

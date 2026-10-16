@@ -1,39 +1,8 @@
-<!doctype html>
-<html lang="he" dir="rtl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>בית השיעורים</title>
-<meta name="theme-color" content="#ffffff">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
-<link rel="stylesheet" href="style.css?v=23">
-</head>
-<body>
-<header class="top">
-  <button id="backBtn" class="backb" onclick="goBack()" aria-label="חזרה" hidden>→ חזרה</button>
-  <a href="#/" class="brand"><img src="icons/icon.svg" alt=""><span>בית השיעורים</span></a>
-  <form class="search" id="searchForm" role="search">
-    <input id="q" type="search" placeholder="חיפוש שיעור לפי כותרת או תגית…" autocomplete="off">
-  </form>
-</header>
-<main id="app"><div class="loading">טוען…</div></main>
-<nav class="tabs">
-  <a href="#/" data-tab="home"><span>⌂</span>בית</a>
-  <a href="#/par" data-tab="par"><span>📜</span>פרשה</a>
-  <a href="#/cat" data-tab="cat"><span>☰</span>רבנים</a>
-  <a href="#/topics" data-tab="topics"><span>🏷</span>נושאים</a>
-  <a href="#/search" data-tab="search"><span>⌕</span>חיפוש</a>
-  <a href="#/fav" data-tab="fav"><span>★</span>מועדפים</a>
-  <a href="#/notes" data-tab="notes"><span>✎</span>הערות</a>
-</nav>
-<script src="sources.js?v=23"></script>
-<script src="study.js?v=23"></script>
-<script src="config.js?v=23"></script>
-<script src="sync.js?v=23"></script>
-<script src="app.js?v=23"></script>
-</body>
-</html>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><title>האתר עבר</title>
+<script>
+// unregister the old service worker so the installed app doesn't keep serving the cached old copy
+if(navigator.serviceWorker)navigator.serviceWorker.getRegistrations().then(r=>r.forEach(x=>x.unregister()));
+if(window.caches)caches.keys().then(k=>k.forEach(n=>caches.delete(n)));
+var p=location.pathname.replace(/^\/shiurim-app\/?/,'');
+location.replace('https://moshekfir78.github.io/shiurim-app/'+p+location.search+location.hash);
+</script></head><body><p>האתר עבר ל־<a href="https://moshekfir78.github.io/shiurim-app/">moshekfir78.github.io/shiurim-app</a></p></body></html>

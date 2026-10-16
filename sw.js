@@ -1,9 +1,2 @@
-const V='shiurim-v23', SHELL=['./','index.html','style.css?v=23','app.js?v=23','sources.js?v=23','study.js?v=23','config.js?v=23','sync.js?v=23','manifest.webmanifest','icons/icon.svg'];
-self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL.map(u=>new Request(u,{cache:'reload'})))));self.skipWaiting()});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
-self.addEventListener('fetch',e=>{
-  const u=new URL(e.request.url);
-  if(u.origin!==location.origin||e.request.method!=='GET')return; // audio/video stream straight from source
-  // network-first, always revalidating with the server (bypasses the 10-min HTTP cache); cache only as offline fallback
-  e.respondWith(fetch(e.request,{cache:'no-cache'}).then(r=>{if(r.ok){const cp=r.clone();caches.open(V).then(c=>c.put(e.request,cp))}return r}).catch(()=>caches.match(e.request)));
-});
+self.addEventListener('install',e=>self.skipWaiting());
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.map(n=>caches.delete(n)))).then(()=>self.registration.unregister()).then(()=>self.clients.matchAll()).then(cs=>cs.forEach(c=>c.navigate('https://moshekfir78.github.io/shiurim-app/'+new URL(c.url).hash)))));
